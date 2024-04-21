@@ -1,20 +1,23 @@
-
- .ueberschriften {
+body {
   text-align: center;
-  font-family: Apple Chancery, cursive;
-  color: burlywood
- } 
-/* Überschrift 1 */
-      h1 {
-        background-color: rgb(243, 236, 226);
-        font-size: 4em;
-        }
-
-/* Überschrift2 */
-h2 {
-font-size: 3em
-
+  background: rgba(247, 237, 224, 0.34)
 }
+/* Überschriften*/
+          .ueberschriften {
+            text-align: center;
+            font-family: Apple Chancery, cursive;
+            color: rgb(0, 0, 0)
+          } 
+          .ueberschriften2 {
+            background-color: rgba(255, 182, 193, 0.504);
+          }
+                h1 {
+                  background-color: rgba(255, 182, 193, 0.504);
+                  font-size: 4em;
+                  }
+          h2 {
+          font-size: 3em
+          }
 /* Design der links */
       a {
         text-decoration: none; 
@@ -30,30 +33,65 @@ font-size: 3em
         .link {
           text-align: center;
         }
+
 /* Design des footers */
-     
-footer {
-    display: flex;
-    justify-content: center; /* Horizontale Ausrichtung zentrieren */
-    align-items: center; /* Vertikale Ausrichtung zentrieren */
-    height: 200px; /* Höhe des Fußbereichs */
-    background: rgb(243, 236, 226) ;
-    div {
-      margin-bottom: 30px; /* Unten 20px Abstand zwischen den Divs */
+      footer {
+          display: flex;
+          justify-content: center; /* Horizontale Ausrichtung zentrieren */
+          align-items: center; /* Vertikale Ausrichtung zentrieren */
+          height: 200px; /* Höhe des Fußbereichs */
+          div {
+            margin-bottom: 30px; /* Unten 20px Abstand zwischen den Divs */
 
-  }
-  }
+        }
+        }
 
-  img {
-    max-width: 100%; /* Das Bild passt sich der Breite des Fußbereichs an */
-    max-height: 100%; /* Das Bild passt sich der Höhe des Fußbereichs an */
-    object-fit: cover; /* Das Bild wird proportional skaliert, um den Fußbereich auszufüllen */
-  }
+        img {
+          max-width: 100%; /* Das Bild passt sich der Breite des Fußbereichs an */
+          max-height: 100%; /* Das Bild passt sich der Höhe des Fußbereichs an */
+          object-fit: cover; /* Das Bild wird proportional skaliert, um den Fußbereich auszufüllen */
+        }
 
-body {
-  text-align: center;
-}
-.hilfe {
-  font-size: 35px;
-  color:aquamarine
-}
+/* Seite 3 textfeld*/
+    textarea {
+      background-color: rgba(170, 150, 152, 0.305);
+      color: #333;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+    textarea:hover,
+    textarea:focus {
+        border-color: #7c74858c;
+        box-shadow: 0 0 5px #7c74858c;
+    }
+/* Plus-Zeichen*/
+      #addButton {
+        background-color: lightpink;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        animation: pulse 1.5s infinite alternate;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+      }
+
+      @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+      }
+      p {
+        font-size: 25px;
+      }
