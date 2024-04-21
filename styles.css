@@ -1,0 +1,59 @@
+
+ .ueberschriften {
+  text-align: center;
+  font-family: Apple Chancery, cursive;
+  color: burlywood
+ } 
+/* Überschrift 1 */
+      h1 {
+        background-color: rgb(243, 236, 226);
+        font-size: 4em;
+        }
+
+/* Überschrift2 */
+h2 {
+font-size: 3em
+
+}
+/* Design der links */
+      a {
+        text-decoration: none; 
+        color: #555; 
+        font-weight: bold; 
+        text-align: center;
+        font-size: 2em;
+       }
+
+        a:hover {
+            color: lightpink; 
+        }
+        .link {
+          text-align: center;
+        }
+/* Design des footers */
+     
+footer {
+    display: flex;
+    justify-content: center; /* Horizontale Ausrichtung zentrieren */
+    align-items: center; /* Vertikale Ausrichtung zentrieren */
+    height: 200px; /* Höhe des Fußbereichs */
+    background: rgb(243, 236, 226) ;
+    div {
+      margin-bottom: 30px; /* Unten 20px Abstand zwischen den Divs */
+
+  }
+  }
+
+  img {
+    max-width: 100%; /* Das Bild passt sich der Breite des Fußbereichs an */
+    max-height: 100%; /* Das Bild passt sich der Höhe des Fußbereichs an */
+    object-fit: cover; /* Das Bild wird proportional skaliert, um den Fußbereich auszufüllen */
+  }
+
+body {
+  text-align: center;
+}
+.hilfe {
+  font-size: 35px;
+  color:aquamarine
+}
