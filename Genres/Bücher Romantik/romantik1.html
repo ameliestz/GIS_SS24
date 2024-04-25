@@ -9,11 +9,21 @@
   <body>
     <h2 class="ueberschriften ueberschriften2"> It ends with us </h2>
     <div> 
+ <!-- Bild eingefügt-->
+        <img class="Bilder" 
+        src="/Bilder/itendswithus.jpeg"
+        alt="It ends with us"
+        title="It ends with us"
+        />
+<!-- Inhalt der Seite-->
         <p> Autor: Colleen Hoover </p>
         <p> Bewertung: ⭐️⭐️ </p>
         <label for="Notizen"> Notizen: </label><br>
         <textarea name="Notizen" id="Notizen" cols="30" rows="10"></textarea>
-        <button id="addButton">+</button> <br>
     </div>
+<!-- Hier ist dein Element, das gelöscht werden soll -->
+      <div id="elementToBeDeleted">
+        <button onclick="deleteElement()">Löschen</button>
+      </div>
   </body>
 </html>

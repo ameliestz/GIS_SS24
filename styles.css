@@ -95,3 +95,20 @@ body {
       p {
         font-size: 25px;
       }
+/* Bilder der Unterseiten*/
+      .Bilder {
+        height: 290px;
+        width: 200px
+      }
+
+#elementToBeDeleted {
+  color: lightpink;
+  border: none; /* Entferne den Rand des Buttons */
+  padding: 10px 20px; /* Füge etwas Abstand um den Text hinzu */
+  cursor: pointer; /* Zeige die Hand als Cursor beim Überfahren des Buttons */
+}
+
+/* Ändere den Button-Stil, wenn der Mauszeiger darüber schwebt */
+button:hover {
+  background-color: lightpink; /* Hellere rosa Farbe */
+}
