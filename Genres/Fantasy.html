@@ -10,11 +10,44 @@
   <body>
     <h2 class="ueberschriften ueberschriften2"> Fantasy </h2>
     <div> 
+<!--Popup-->
+      <style class="popup">
+        .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+        
+        .popup img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        }
+        </style>
+        </head>
+        <body>
+        
+          <button id="addButton">+</button> <br>
+        
+        <div id="popup" class="popup">
+        <img id="popupImage" src="" alt="Bild">
+        <form>
+            <label for="Titel">Titel:</label><br>
+            <input type="text" id="eingabe" name="eingabe"><br>
+          </form>
+          <form>
+            <label for="Autor">Autor:</label><br>
+            <input type="text" id="eingabe" name="eingabe"><br>
+          </form>
+          <br><br>
+          <button onclick="closePopup()">Schließen</button>
+        </div>  
 <!-- Links zu den Büchern -->
-    <button id="addButton">+</button> <br>
     <a href="Bücher Fantasy/fantasy1.html" title="Herr der Ringe"> Herr der Ringe</a>
         <br />
-        <a href="Bücher Fantasy/fantasy2.html" title="Twilight" > Twilight </a>
+        <a href="Bücher Fantasy/fantasy2.html" title="Twilight" > Twilight </a> 
+           
     </div>
   </body>
 </html>

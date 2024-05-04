@@ -10,8 +10,40 @@
   <body>
     <h2 class="ueberschriften ueberschriften2"> Horror </h2>
     <div> 
+<!--Popup-->
+      <style class="popup">
+        .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+        
+        .popup img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        }
+        </style>
+        </head>
+        <body>
+        
+          <button id="addButton">+</button> <br>
+        
+        <div id="popup" class="popup">
+        <img id="popupImage" src="" alt="Bild">
+        <form>
+            <label for="Titel">Titel:</label><br>
+            <input type="text" id="eingabe" name="eingabe"><br>
+          </form>
+          <form>
+            <label for="Autor">Autor:</label><br>
+            <input type="text" id="eingabe" name="eingabe"><br>
+          </form>
+          <br><br>
+          <button onclick="closePopup()">Schließen</button>
+        </div>  
 <!-- Link zum ersten Buch-->
-<button id="addButton">+</button> <br>
 <a href="Bücher Horror/horror1.html" title="Shining"> Shining </a>
     </div>
   </body>

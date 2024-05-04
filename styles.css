@@ -135,3 +135,12 @@ button:hover {
         content: '\2605';
         color: lightpink;
       }
+
+.popup {
+  background-color: rgb(247, 237, 224);
+  padding: 20px;
+  border: 1px  lightpink;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.634);
+
+}
