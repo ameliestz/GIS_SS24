@@ -5,46 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Romantik</title>
     <link rel="stylesheet" href="../styles.css" />
+    <script src="../script.js" defer></script>
   </head>
 <!-- hier beginnt der Inhalt von Romantik-->
   <body>
     <h2 class="ueberschriften ueberschriften2"> Romantik </h2>
     <div> 
-      <!--Popup-->
-      <style class="popup">
-        .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
-        
-        .popup img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-        }
-        </style>
-        </head>
-        <body>
-        
-          <button id="addButton">+</button> <br>
-        
-        <div id="popup" class="popup">
-        <img id="popupImage" src="" alt="Bild">
-        <form>
-            <label for="Titel">Titel:</label><br>
-            <input type="text" id="eingabe" name="eingabe"><br>
-          </form>
-          <form>
-            <label for="Autor">Autor:</label><br>
-            <input type="text" id="eingabe" name="eingabe"><br>
-          </form>
-          <br><br>
-          <button onclick="closePopup()">Schließen</button>
-        </div>  
+<!--Popup-->
+      <button id="addButton2">+</button> <br> <!--Plus-Button-->
+      <div id="popup" class="popup">
+      <img id="popupImage" src="" alt="Bild">
+      <form>
+          <label for="Titel">Titel:</label><br>
+          <input type="text" id="titel" name="eingabe"><br>
+      </form>
+      <form>
+          <label for="Autor">Autor:</label><br>
+          <input type="text" id="autor" name="eingabe"><br>
+      </form>
+        <br>
+        <button id="safe">Speichern</button>
+        <br>
+        <button id="closePopup">Schließen</button>
+      </div>  
 <!-- Link zum ersten Buch-->
       <a href="Bücher Romantik/romantik1.html" title="It ends with us"> It ends with us</a>
     </div>
+    <footer id="elementToBeDeleted">
+      <button onclick="deleteElement()">Löschen</button>
+    </footer>
   </body>
 </html>

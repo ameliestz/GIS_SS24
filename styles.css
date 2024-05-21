@@ -42,10 +42,8 @@ body {
           height: 200px; /* Höhe des Fußbereichs */
           div {
             margin-bottom: 30px; /* Unten 20px Abstand zwischen den Divs */
-
         }
         }
-
         img {
           max-width: 100%; /* Das Bild passt sich der Breite des Fußbereichs an */
           max-height: 100%; /* Das Bild passt sich der Höhe des Fußbereichs an */
@@ -69,8 +67,8 @@ body {
         border-color: #7c74858c;
         box-shadow: 0 0 5px #7c74858c;
     }
-/* Plus-Zeichen*/
-      #addButton {
+/* Plus-Zeichen Seite 1*/
+      #addButton1 {
         background-color: lightpink;
         color: #fff;
         border: none;
@@ -99,6 +97,33 @@ body {
       .Bilder {
         height: 290px;
         width: 200px
+      }
+ /* Plus-Zeichen Seite 2*/
+
+    #addButton2 {
+        background-color: lightpink;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        animation: pulse 1.5s infinite alternate;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+      }
+
+      @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+      }
+      p {
+        font-size: 25px;
       }
 
 #elementToBeDeleted {
@@ -142,5 +167,16 @@ button:hover {
   border: 1px  lightpink;
   text-align: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.634);
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Apple Chancery, cursive;
+}
 
+.popup img {
+max-width: 100%;
+height: auto;
+margin-bottom: 10px;
 }

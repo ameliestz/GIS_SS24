@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>digitale Bibliothek</title>
     <link rel="stylesheet" href="styles.css" /> 
+    <script src="../script1.js" defer></script>
 </head>
 <body>
     <main>
@@ -13,39 +14,17 @@
         <h1>meine digitale Bibliothek</h1>
         <h2>Genres:</h2>
       </div>
-      <button id="addButton">+</button> <br>
 <!-- Popup-Inhalt -->
-    <style class="popup">
-        .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
-        
-        .popup img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-        }
-        </style>
-        </head>
-        <body>
-        
-        <button onclick="openPopup()">Popup öffnen</button>
-        
+<button id="addButton1">+</button> <br>
         <div id="popup" class="popup">
-        <img id="popupImage" src="" alt="Bild">
         <form>
-            <label for="Titel">Titel:</label><br>
-            <input type="text" id="eingabe" name="eingabe"><br>
-          </form>
-          <form>
-            <label for="Autor">Autor:</label><br>
-            <input type="text" id="eingabe" name="eingabe"><br>
-          </form>
-          <br><br>
-          <button onclick="closePopup()">Schließen</button>
+            <label for="Genre">Genre:</label><br>
+            <input type="text" id="Genre" name="Genre"><br>
+            </form>
+            <br>
+            <button id="safe">Speichern</button>
+            <br>
+            <button id="closePopup">Schließen</button>
         </div>   
          
 <!-- Links zu den Genres -->

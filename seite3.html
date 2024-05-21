@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Empty </title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <h2 class="ueberschriften ueberschriften2"> Empty </h2>
+    <div> 
+<!-- Bild eingefügt-->
+       <img class="Bilder" 
+       src=""
+       alt="Empty"
+       title="Empty"
+       />
+<!-- Inhalt der Seite-->
+        <p> Autor:  </p>
+<!-- Sternebwertung-->
+     <div class="stars">
+      <input type="radio" id="star5" name="rating" value="5">
+      <label for="star5"></label>
+      <input type="radio" id="star4" name="rating" value="4">
+      <label for="star4"></label>
+      <input type="radio" id="star3" name="rating" value="3">
+      <label for="star3"></label>
+      <input type="radio" id="star2" name="rating" value="2">
+      <label for="star2"></label>
+      <input type="radio" id="star1" name="rating" value="1">
+      <label for="star1"></label>
+    </div>
+<!-- Notizen -->
+<br><br>
+        <label for="Notizen"> Notizen: </label><br>
+        <textarea name="Notizen" id="Notizen" cols="30" rows="10"></textarea>
+    </div>
+<!-- Hier ist dein Element, das gelöscht werden soll -->
+    <div id="elementToBeDeleted">
+      <button onclick="deleteElement()">Löschen</button>
+    </div>
+  </body>
+</html>
