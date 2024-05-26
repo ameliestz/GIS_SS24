@@ -10,29 +10,31 @@
 <!-- hier beginnt der Inhalt von Romantik-->
   <body>
     <h2 class="ueberschriften ueberschriften2"> Romantik </h2>
-    <div> 
-<!--Popup-->
-      <button id="addButton2">+</button> <br> <!--Plus-Button-->
-      <div id="popup" class="popup">
-      <img id="popupImage" src="" alt="Bild">
-      <form>
-          <label for="Titel">Titel:</label><br>
-          <input type="text" id="titel" name="eingabe"><br>
-      </form>
-      <form>
-          <label for="Autor">Autor:</label><br>
-          <input type="text" id="autor" name="eingabe"><br>
-      </form>
-        <br>
-        <button id="safe">Speichern</button>
-        <br>
-        <button id="closePopup">Schließen</button>
-      </div>  
-<!-- Link zum ersten Buch-->
-      <a href="Bücher Romantik/romantik1.html" title="It ends with us"> It ends with us</a>
+    <div id="unterseite"> 
+      <!--Popup-->
+            <button id="addButton2">+</button> <br> <!--Plus-Button-->
+            <div id="popup" class="popup">
+        <!-- Bild eingefügt-->
+              <form id="imageForm">
+                <label for="imageUrl">Bild-URL:</label> <br>
+                <input type="url" id="imageUrl" name="imageUrl" required>
+              </form>
+        <!-- Textfelder-->
+            <form>
+                <label for="Titel">Titel:</label><br>
+                <input type="text" id="titel" name="eingabe"><br>
+            </form>
+            <form>
+                <label for="Autor">Autor:</label><br>
+                <input type="text" id="autor" name="eingabe"><br>
+            </form>
+              <br>
+              <button id="safe">Speichern</button>
+              <br>
+              <button id="closePopup">Schließen</button>
+            </div>  
+<!-- Link zum ersten Buch
+      <a href="Bücher Romantik/romantik1.html" title="It ends with us"> It ends with us</a> -->
     </div>
-    <footer id="elementToBeDeleted">
-      <button onclick="deleteElement()">Löschen</button>
-    </footer>
   </body>
 </html>

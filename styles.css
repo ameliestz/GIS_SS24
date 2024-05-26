@@ -180,3 +180,9 @@ max-width: 100%;
 height: auto;
 margin-bottom: 10px;
 }
+#unterseite a {
+  display: block; /* Die Links werden als Blockelemente gerendert */
+  margin-bottom: 10px; /* Abstand zwischen den Links hinzufügen */
+}
+
+
