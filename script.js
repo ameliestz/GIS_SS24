@@ -54,6 +54,3 @@
     let buch= {title:title, autor:autor, bildUrl: bildUrl} 
     localStorage.setItem(id, JSON.stringify(buch) );
     }
-
-  // Sterne-Ranking auslesen
-    let rating = document.querySelector('input[name="rating"]:checked').value;
