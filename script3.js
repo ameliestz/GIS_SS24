@@ -63,4 +63,3 @@ buchtitelseite3.textContent= buch.title
 
 // Event-Listener für die Notizen
         notizenElement.addEventListener('input', saveNotizen);
-
