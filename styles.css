@@ -37,17 +37,15 @@ body {
 /* Design des footers */
       footer {
           display: flex;
-          justify-content: center; /* Horizontale Ausrichtung zentrieren */
-          align-items: center; /* Vertikale Ausrichtung zentrieren */
-          height: 200px; /* Höhe des Fußbereichs */
-          div {
-            margin-bottom: 30px; /* Unten 20px Abstand zwischen den Divs */
+          justify-content: center; 
+          align-items: center; 
+            margin-bottom: 30px; 
         }
-        }
+        
         img {
-          max-width: 100%; /* Das Bild passt sich der Breite des Fußbereichs an */
-          max-height: 100%; /* Das Bild passt sich der Höhe des Fußbereichs an */
-          object-fit: cover; /* Das Bild wird proportional skaliert, um den Fußbereich auszufüllen */
+          max-width: 100%; 
+          max-height: 100%; 
+          object-fit: cover; 
         }
 
 /* Seite 3 textfeld*/
@@ -67,8 +65,8 @@ body {
         border-color: #7c74858c;
         box-shadow: 0 0 5px #7c74858c;
     }
-/* Plus-Zeichen Seite 1*/
-      #addButton1 {
+/* Plus-Zeichen*/
+      #addButton1, #addbutton2 {
         background-color: lightpink;
         color: #fff;
         border: none;
@@ -98,45 +96,17 @@ body {
         height: 290px;
         width: 200px
       }
- /* Plus-Zeichen Seite 2*/
 
-    #addButton2 {
-        background-color: lightpink;
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 24px;
-        cursor: pointer;
-        animation: pulse 1.5s infinite alternate;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
+/*Löschen-Button*/
+      #elementToBeDeleted {
+        color: lightpink;
+        border: none; /* Entferne den Rand des Buttons */
+        padding: 10px 20px; /* Füge etwas Abstand um den Text hinzu */
+        cursor: pointer; /* Zeige die Hand als Cursor beim Überfahren des Buttons */
       }
-
-      @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        100% {
-            transform: scale(1.1);
-        }
+      button:hover {
+        background-color: lightpink; 
       }
-      p {
-        font-size: 25px;
-      }
-
-#elementToBeDeleted {
-  color: lightpink;
-  border: none; /* Entferne den Rand des Buttons */
-  padding: 10px 20px; /* Füge etwas Abstand um den Text hinzu */
-  cursor: pointer; /* Zeige die Hand als Cursor beim Überfahren des Buttons */
-}
-
-/* Ändere den Button-Stil, wenn der Mauszeiger darüber schwebt */
-button:hover {
-  background-color: lightpink; /* Hellere rosa Farbe */
-}
 
 /* Sternbewertung*/
       .stars {
@@ -145,44 +115,44 @@ button:hover {
         cursor: pointer;
         direction: rtl; /* Ändert die Richtung von rechts nach links */
       }
-
       .stars > input {
         display: none;
       }
-
       .stars > label:before {
         content: '\2605';
         margin: 5px;
       }
-
       .stars > label:hover:before,
       .stars > input:checked ~ label:before {
         content: '\2605';
         color: lightpink;
       }
 
-.popup {
-  background-color: rgb(247, 237, 224);
-  padding: 20px;
-  border: 1px  lightpink;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.634);
-  visibility: hidden;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: Apple Chancery, cursive;
-}
+/*POPUP*/
+    .popup {
+      background-color: rgb(247, 237, 224);
+      padding: 20px;
+      border: 1px  lightpink;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.634);
+      visibility: hidden;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Apple Chancery, cursive;
+    }
 
-.popup img {
-max-width: 100%;
-height: auto;
-margin-bottom: 10px;
-}
-#unterseite a {
-  display: block; /* Die Links werden als Blockelemente gerendert */
-  margin-bottom: 10px; /* Abstand zwischen den Links hinzufügen */
-}
+    .popup img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    }
+
+/* Links seite3.html*/
+    #unterseite a {
+      display: block; /* Die Links werden als Blockelemente gerendert */
+      margin-bottom: 10px; /* Abstand zwischen den Links hinzufügen */
+    }
 
 

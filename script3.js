@@ -1,3 +1,6 @@
+// Enthält spezifische Funktionen und Event-Listener für die Detailseite eines Buchs.
+// Funktionalität wie Anzeigen der Buchdetails, Ändern des Dokumenttitels, Einfügen von Autor und Bild, Lösch-Button, Sterne-Ranking, und Notizen
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 console.log(id);
@@ -8,7 +11,7 @@ let buchtitelseite3= document.getElementById("buchtitelseite3")
 buchtitelseite3.textContent= buch.title
 
 
-// Setze den Dokumenttitel auf den Buchtitel
+// Dokumenttitel= Buchtitel
         document.title = buch.title;
 
  // Autor einfügen
@@ -29,37 +32,37 @@ buchtitelseite3.textContent= buch.title
         window.history.back();
         });
 
-// Sterne-Ranking laden und setzen
-        const stars = document.getElementsByName("rating");
-        stars.forEach(star => {
-        if (star.value == buch.rating) {
-        star.checked = true;
-        }
-        });
+// Sterne-Ranking 
+        // gespeicherte Sterne-Bewertung des Buches wird geladen und die entsprechenden Sterne werden im HTML-Formular markiert.
+                const stars = document.getElementsByName("rating");
+                stars.forEach(star => {
+                if (star.value == buch.rating) {
+                star.checked = true;
+                }
+                });
 
+        // Funktion zum Speichern des Sterne-Rankings im Buchobjekt und aktualisiert den lokalen Speicher
+                function saveRating() {
+                const selectedRating = document.querySelector('input[name="rating"]:checked').value;
+                buch.rating = selectedRating;
+                localStorage.setItem(id, JSON.stringify(buch));
+                }
 
-// Funktion zum Speichern des Sterne-Rankings
-        function saveRating() {
-        const selectedRating = document.querySelector('input[name="rating"]:checked').value;
-        buch.rating = selectedRating;
-        localStorage.setItem(id, JSON.stringify(buch));
-        }
+        // Event-Listener für das Sterne-Ranking um  Bewertung zu speichern, wenn sie geändert wird
+                const starInputs = document.querySelectorAll('input[name="rating"]');
+                starInputs.forEach(star => {
+                star.addEventListener('change', saveRating);
+                });
 
-// Event-Listener für das Sterne-Ranking
-        const starInputs = document.querySelectorAll('input[name="rating"]');
-        starInputs.forEach(star => {
-        star.addEventListener('change', saveRating);
-        });
-
-// Notizen anzeigen
+// Notizen 
         let notizenElement = document.getElementById("Notizen");
         notizenElement.value = buch.notizen || '';
 
-// Funktion zum Speichern der Notizen
-        function saveNotizen() {
-        buch.notizen = notizenElement.value;
-        localStorage.setItem(id, JSON.stringify(buch));
-        }
+        // Funktion zum Speichern der Notizen
+                function saveNotizen() {
+                buch.notizen = notizenElement.value;
+                localStorage.setItem(id, JSON.stringify(buch));
+                }
 
-// Event-Listener für die Notizen
-        notizenElement.addEventListener('input', saveNotizen);
+        // Event-Listener für die Notizen
+                notizenElement.addEventListener('input', saveNotizen);
