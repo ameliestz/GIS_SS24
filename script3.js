@@ -1,4 +1,4 @@
-// Enthält spezifische Funktionen und Event-Listener für die Detailseite eines Buchs.
+// Enthält spezifische Funktionen und Event-Listener für die Detailseite des Buchs.
 // Funktionalität wie Anzeigen der Buchdetails, Ändern des Dokumenttitels, Einfügen von Autor und Bild, Lösch-Button, Sterne-Ranking, und Notizen
 
 const params = new URLSearchParams(window.location.search);
@@ -14,7 +14,7 @@ buchtitelseite3.textContent= buch.title
 // Dokumenttitel= Buchtitel
         document.title = buch.title;
 
- // Autor einfügen
+// Autor einfügen
         let autorElement = document.getElementById("autor");
         autorElement.textContent = "Autor: " + buch.autor;
         

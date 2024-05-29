@@ -66,7 +66,33 @@ body {
         box-shadow: 0 0 5px #7c74858c;
     }
 /* Plus-Zeichen*/
-      #addButton1, #addbutton2 {
+      #addButton1{
+        background-color: lightpink;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        animation: pulse 1.5s infinite alternate;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+      }
+
+      @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+      }
+      p {
+        font-size: 25px;
+      }
+      #addButton2
+      {
         background-color: lightpink;
         color: #fff;
         border: none;
@@ -147,6 +173,19 @@ body {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
+    }
+    .popup1 {
+      background-color: rgb(247, 237, 224);
+      padding: 20px;
+      border: 1px  lightpink;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.634);
+      visibility: hidden;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Apple Chancery, cursive;
     }
 
 /* Links seite3.html*/
