@@ -195,3 +195,10 @@ body {
     }
 
 
+/* Links Hauptseite*/
+
+
+#genresContainer a {
+  display: block; /* Jeder Link wird als Blockelement dargestellt */
+  text-decoration: none; /* Keine Unterstreichung für Links */
+}
