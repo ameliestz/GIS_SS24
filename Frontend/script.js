@@ -29,7 +29,6 @@
           let buch = JSON.parse(buchstring);
 
           if (buch && buch.genre === genre) { // Überprüfe, ob das Buch im richtigen Genre ist
-            console.log('Geladenes Buch:', buch);
 
             let unterseite = document.getElementById("unterseite");
             if (unterseite) {
