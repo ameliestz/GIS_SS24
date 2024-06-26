@@ -35,7 +35,7 @@ loeschenButton.addEventListener('click', function() {
 
 function sendDeleteRequestToServer(bookId) {
   let xhr = new XMLHttpRequest();
-  xhr.open("DELETE", "http://127.0.0.1:3000/deleteBook?id=" + bookId, true);
+  xhr.open("DELETE", "http://127.0.0.1:3001/deleteBook?id=" + bookId, true);
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       console.log("Book deleted from server");
