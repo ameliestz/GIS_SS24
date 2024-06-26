@@ -1,6 +1,7 @@
+// Event-Listener, der wartet, bis das HTML fertig geladen ist
 document.addEventListener('DOMContentLoaded', (event) => {
 
-// Plus-Button 
+  // Plus-Button
   let button = document.getElementById("addButton2");
   button.addEventListener('click', openpopup);
 
@@ -8,16 +9,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById("popup").style.visibility = "visible";
   }
 
-// Löschen-Button
-
+  // Schließen-Button
   let buttonschließen = document.getElementById("closePopup");
   buttonschließen.addEventListener('click', closepopup);
 
-  function closepopup(event) { 
+  function closepopup(event) {
     document.getElementById("popup").style.visibility = "hidden";
   }
 
-// Genre aus der URL extrahieren
+  // Laden der gespeicherten Bücher nur für das aktuelle Genre
   let genre = getGenreFromURL();
   if (genre) {
     for (let i = 0; i < localStorage.length; i++) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       let buchstring = localStorage.getItem(id);
       let buch = JSON.parse(buchstring);
 
-      if (buch && buch.genre === genre) {
+      if (buch && buch.genre === genre) { // Überprüfen, ob das Buch im richtigen Genre ist
         let unterseite = document.getElementById("unterseite");
         if (unterseite) {
           let link = document.createElement("a");
@@ -43,66 +43,72 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   // Speichern-Button
+  let speichern = document.getElementById("safe");
+  speichern.addEventListener('click', safe);
 
-        let speichern = document.getElementById("safe");
-        speichern.addEventListener('click', safe);
+  function safe(event) {
+    event.preventDefault();  // Verhindert das Standard-Submit-Verhalten
+    let title = document.getElementById("titel").value;
+    let autor = document.getElementById("autor").value;
+    let bildUrl = document.getElementById("imageUrl").value;
+    let genre = getGenreFromURL();
 
-        function safe(event) {
-          event.preventDefault();
-          let title = document.getElementById("titel").value;
-          let autor = document.getElementById("autor").value;
-          let bildUrl = document.getElementById("imageUrl").value;
-          let genre = getGenreFromURL();
+    // Text verschwindet nach dem Speichern
+    document.getElementById("autor").value = '';
+    document.getElementById("titel").value = '';
+    document.getElementById("imageUrl").value = '';
 
-          document.getElementById("autor").value = '';  
-          document.getElementById("titel").value = '';  
-          document.getElementById("imageUrl").value = '';
+    // Benutzerdefinierte ID erstellen
+    let id = new Date().valueOf();
+    let buch = { title: title, autor: autor, bildUrl: bildUrl, genre: genre };
 
-          let id = new Date().valueOf(); 
-          let buch = { title: title, autor: autor, bildUrl: bildUrl, genre: genre };
-          localStorage.setItem(id, JSON.stringify(buch));
+    // Daten im localStorage speichern
+    localStorage.setItem(id, JSON.stringify(buch));
 
-          if (genre === getGenreFromURL()) {
-            let unterseite = document.getElementById("unterseite");
-            if (unterseite) {
-              let link = document.createElement("a");
-              link.href = "seite3.html?id=" + id;
-              link.title = title;
-              link.textContent = title;
-              unterseite.appendChild(link);
-            } else {
-              console.error('Das unterseite-Element wurde nicht gefunden.');
-            }
-          }
+    // Füge den neuen Link hinzu, nur wenn das Genre übereinstimmt
+    if (genre === getGenreFromURL()) {
+      let unterseite = document.getElementById("unterseite");
+      if (unterseite) {
+        let link = document.createElement("a");
+        link.href = "seite3.html?id=" + id;
+        link.title = title;
+        link.textContent = title;
+        unterseite.appendChild(link);
+      } else {
+        console.error('Das unterseite-Element wurde nicht gefunden.');
+      }
+    }
 
-          // AJAX Request to send data to the server
-          let xhr = new XMLHttpRequest();
-          xhr.open("POST", "http://127.0.0.1:3001/saveBook", true);
-          xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-          xhr.send(JSON.stringify(buch));
-
-          xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-              console.log("Book saved to server");
-            } else if (xhr.readyState === 4) {
-              console.error("Failed to save book to server");
-            }
-          };
-        }
-
-//Buch in richtiges Genre einfügen
-        function getGenreFromURL() {
-          let url = window.location.href;
-          if (url.includes('Romantik')) {
-            return 'Romantik';
-          } else if (url.includes('Komedie')) {
-            return 'Komedie';
-          } else if (url.includes('Horror')) {
-            return 'Horror';
-          } else if (url.includes('Fantasy')) {
-            return 'Fantasy';
-          } else {
-            return null;
-          }
-        }
+// Daten an den Server senden
+    fetch('http://127.0.0.1:3007/saveBook', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(buch)
+    }).then(response => response.json())
+      .then(data => {
+        console.log('Success:', data); // Erfolgsnachricht
+      })
+      .catch((error) => {
+        console.error('Error:', error); // Fehlermeldung
       });
+  }
+
+
+// Funktion zum Extrahieren des Genres aus der URL
+  function getGenreFromURL() {
+    let url = window.location.href;
+    if (url.includes('Romantik')) {
+      return 'Romantik';
+    } else if (url.includes('Komedie')) {
+      return 'Komedie';
+    } else if (url.includes('Horror')) {
+      return 'Horror';
+    } else if (url.includes('Fantasy')) {
+      return 'Fantasy';
+    } else {
+      return null;
+    }
+  }
+});
