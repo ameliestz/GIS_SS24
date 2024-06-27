@@ -18,29 +18,48 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
 
 // Laden der gespeicherten Bücher nur für das aktuelle Genre
-      let genre = getGenreFromURL();
-      if (genre) {
-        for (let i = 0; i < localStorage.length; i++) {
-          let id = localStorage.key(i);
-          let buchstring = localStorage.getItem(id);
-          let buch = JSON.parse(buchstring);
+ // Funktion zum Abrufen des Genres aus der URL
+function getGenreFromURL() {
+  let urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('genre');
+}
 
-          if (buch && buch.genre === genre) { // Überprüfen, ob das Buch im richtigen Genre ist
-            let unterseite = document.getElementById("unterseite");
-            if (unterseite) {
-              let link = document.createElement("a");
-              link.href = "seite3.html?id=" + id;
-              link.title = buch.title;
-              link.textContent = buch.title;
-              unterseite.appendChild(link);
-            } else {
-              console.error('Das unterseite-Element wurde nicht gefunden.');
-            }
+let genre = getGenreFromURL();
+
+if (genre) {
+
+// Daten vom Server abrufen
+  fetch('http://127.0.0.1:3004/buecher')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Netzwerkantwort war nicht ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Bücher filtern und anzeigen
+      data.forEach(buch => {
+        if (buch && buch.genre === genre) {
+          let unterseite = document.getElementById("unterseite");
+          if (unterseite) {
+            let link = document.createElement("a");
+            link.href = "seite3.html?id=" + buch.id;
+            link.title = buch.title;
+            link.textContent = buch.title;
+            unterseite.appendChild(link);
+          } else {
+            console.error('Das unterseite-Element wurde nicht gefunden.');
           }
         }
-      } else {
-        console.error('Das Genre konnte nicht erkannt werden.');
-      }
+      });
+    })
+    .catch(error => {
+      console.error('Es gab ein Problem mit der Fetch-Operation:', error);
+    });
+} else {
+  console.error('Das Genre konnte nicht erkannt werden.');
+}
+
 
 // Speichern-Button
         let speichern = document.getElementById("safe");
@@ -80,7 +99,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
 
 // Daten an den Server senden
-      fetch('http://127.0.0.1:3007/saveBook', {
+      fetch('http://127.0.0.1:3004/saveBook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -2,7 +2,7 @@ const http = require('http'); // HTTP-Modul für Server
 const sqlite3 = require('sqlite3').verbose(); // SQLite-Datenbankmodul
 
 const hostname = '127.0.0.1'; // Hostname des Servers
-const port = 3007; // Portnummer, auf der der Server läuft
+const port = 3004; // Portnummer, auf der der Server läuft
 
 // Verbindung zur SQLite-Datenbank herstellen
       const db = new sqlite3.Database('./myDatabase.db', (err) => {
@@ -52,7 +52,7 @@ const port = 3007; // Portnummer, auf der der Server läuft
 // GET-Anfrage auf der Wurzelroute
           response.statusCode = 200;
           response.setHeader('Content-Type', 'text/plain');
-          response.write('Hello World');
+          response.write('BIB nicht da');
           response.end();
           break;
         case '/saveBook':
@@ -201,7 +201,9 @@ const port = 3007; // Portnummer, auf der der Server läuft
       });
     }
 
+//Select um Informationen aus dem Server zu holen    
+if (request.method === 'SELECT') 
+
 // Server starten und auf Verbindungen warten
-    server.listen(port, hostname, () => {
-      console.log(`Server läuft unter http://${hostname}:${port}/`);
-    });
+    app.use(bodyParser.json());
+    app.use(express.static(path.join(__dirname, '../Frontend')));
