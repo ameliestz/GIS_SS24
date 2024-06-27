@@ -5,23 +5,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
   console.log(id);
+  let buchstring = localStorage.getItem(id);
+  let buch = JSON.parse(buchstring);
+  console.log(buch.title);
 
-  try {
-    // Daten vom Server abrufen
-    const response = await fetch(`http://127.0.0.1:3004/buecher/${id}`);
-    if (!response.ok) {
-      throw new Error('Netzwerkantwort war nicht ok');
-    }
-    const buch = await response.json();
-    console.log(buch.title);
-
-    let buchtitelseite3 = document.getElementById("buchtitelseite3");
-    buchtitelseite3.textContent = buch.title;
-  } catch (error) {
-    console.error('Es gab ein Problem mit der Fetch-Operation:', error);
-  }
-});
-
+  let buchtitelseite3 = document.getElementById("buchtitelseite3");
+  buchtitelseite3.textContent = buch.title;
 
 // Dokumenttitel = Buchtitel
       document.title = buch.title;
@@ -37,24 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       bildElement.alt = "Buch-Cover";
       bildContainer.appendChild(bildElement);
 
-// Daten aus dem Server abrufen
-  fetch('http://127.0.0.1:3004/saveBook', {
-    method: 'GET', 
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json(); 
-    })
-    .then(data => {
-      console.log('Daten vom Server erhalten:', data);
-    })
-    .catch(error => {
-      console.error('Fetch Fehler:', error);
-    });
-
-
 // Lösch-Button aktivieren
       let loeschenButton = document.getElementById("elementToBeDeleted");
       loeschenButton.addEventListener('click', async function() {
@@ -65,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       async function sendDeleteRequestToServer(bookId) {
         try {
-          const response = await fetch(`http://127.0.0.1:3004/deleteBook?id=${bookId}`, {
+          const response = await fetch(`http://127.0.0.1:3007/deleteBook?id=${bookId}`, {
             method: 'DELETE'
           });
           if (!response.ok) {
@@ -111,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         async function sendUpdateRequestToServer(book) {
           try {
-            const response = await fetch('http://127.0.0.1:3004/updateBook', {
+            const response = await fetch('http://127.0.0.1:3007/updateBook', {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json'
@@ -126,4 +97,4 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error("Fehler:", error.message);
           }
         }
-      
+      });
