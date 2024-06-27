@@ -202,6 +202,6 @@ const port = 3007; // Portnummer, auf der der Server läuft
     }
 
 // Server starten und auf Verbindungen warten
-    server.listen(port, hostname, () => {
-      console.log(`Server läuft unter http://${hostname}:${port}/`);
-    });
+
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../Frontend')));

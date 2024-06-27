@@ -1,14 +1,21 @@
 /// Enthält spezifische Funktionen und Event-Listener für die Detailseite des Buchs.
 // Funktionalität wie Anzeigen der Buchdetails, Ändern des Dokumenttitels, Einfügen von Autor und Bild, Lösch-Button, Sterne-Ranking, und Notizen
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  console.log(id);
-  let buchstring = localStorage.getItem(id);
-  let buch = JSON.parse(buchstring);
+  document.addEventListener('DOMContentLoaded', async () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    console.log(id);
+    let buchstring = localStorage.getItem(id);
+    let buch = JSON.parse(buchstring);
   console.log(buch.title);
 
+
+fetch('http://127.0.0.1:3007/', {
+method: 'GET'
+}
+ )
+
+ 
   let buchtitelseite3 = document.getElementById("buchtitelseite3");
   buchtitelseite3.textContent = buch.title;
 

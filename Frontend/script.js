@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             let buchstring = localStorage.getItem(id);
             let buch = JSON.parse(buchstring);
   
+fetch('http://127.0.0.1:3007/', {
+method: 'GET'
+}
+)
             if (buch && buch.genre === genre) { // Überprüfen, ob das Buch im richtigen Genre ist
               let unterseite = document.getElementById("unterseite");
               if (unterseite) {
