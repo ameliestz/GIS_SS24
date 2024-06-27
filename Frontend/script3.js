@@ -9,13 +9,13 @@
     let buch = JSON.parse(buchstring);
   console.log(buch.title);
 
-
-fetch('http://127.0.0.1:3007/', {
+const download= await fetch('http://127.0.0.1:3007/getBooks', {
 method: 'GET'
 }
  )
+const text= await download.text()
+console.log (text)
 
- 
   let buchtitelseite3 = document.getElementById("buchtitelseite3");
   buchtitelseite3.textContent = buch.title;
 
